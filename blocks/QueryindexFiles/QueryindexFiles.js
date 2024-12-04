@@ -1,4 +1,4 @@
-import { createOptimizedPicture } from '../../scripts/aem.js'
+import { createOptimizedPicture } from '../../scripts/aem.js';
 
 async function createCard(data) {
   const card = document.createElement('div');
@@ -10,7 +10,7 @@ async function createCard(data) {
   const img = document.createElement('img');
   img.src = `${data.image}`;
   img.alt = data.type || 'Image';
-  img.replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]))
+  img.replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]));
 
   const title = document.createElement('p');
   title.textContent = data.title;
@@ -24,7 +24,7 @@ async function createCard(data) {
 }
 
 async function createCardsContainer(jsonURL, limit, offset) {
-  const pathname =  `${jsonURL}?limit=${limit}&offset=${offset}`;
+  const pathname = `${jsonURL}?limit=${limit}&offset=${offset}`;
 
   const resp = await fetch(pathname);
   const json = await resp.json();

@@ -1,4 +1,3 @@
-
 function updateActiveSlide(slide) {
   const block = slide.closest('.carousel');
   const slideIndex = parseInt(slide.dataset.slideIndex, 10);
@@ -94,7 +93,6 @@ export default async function decorate(block) {
   block.setAttribute('id', `carousel-${carouselId}`);
   const rows = block.querySelectorAll(':scope > div');
   const isSingleSlide = rows.length < 2;
-
 
   block.setAttribute('role', 'region');
   block.setAttribute('aria-roledescription', 'Carousel');
