@@ -8,12 +8,22 @@
 }
 
 .cards > ul > li {
-  border: 1px solid #dadada;
   background-color: var(--background-color);
+  position: relative;
 }
 
 .cards .cards-card-body {
-  margin: 16px;
+  margin: 16px 0;
+}
+
+.cards .cards-card-body p:first-child {
+  text-transform: uppercase;
+}
+
+.cards .cards-card-body p:nth-child(2) {
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .cards .cards-card-image {
@@ -24,4 +34,32 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+.cards.disabled {
+  opacity: .65;
+  position: relative;
+}
+
+.cards.disabled ul > li::before {
+  -webkit-font-smoothing: antialiased;
+  background: linear-gradient(to top left,hsla(0,0%,100%,0) 0,hsla(0,0%,100%,0) 50%,var(--brandPrimary,#ffea00) 50%,var(--brandPrimary,#ffea00) 100%);
+  content: ' \26BF';
+  color: #000000;
+  font-size: 25px;
+  font-weight: 400;
+  text-transform: none;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+}
+
+.cards.disabled .cards-card-body,
+.cards.disabled .cards-card-body > p:first-child {
+  margin-top: 0;
+}
+
+.cards.cards.disabled a.button {
+  background-color: #ebebeb;
+  cursor: auto;
 }
