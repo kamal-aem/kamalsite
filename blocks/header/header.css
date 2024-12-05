@@ -34,6 +34,7 @@ header nav[aria-expanded='true'] {
   header nav {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     gap: 0 32px;
     max-width: 1264px;
     padding: 0 32px;
@@ -52,6 +53,7 @@ header nav p {
 
 header nav a:any-link {
   color: currentcolor;
+  text-decoration: none;
 }
 
 /* hamburger */
@@ -139,9 +141,10 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 header .nav-brand {
   grid-area: brand;
   flex-basis: 128px;
-  font-size: var(--heading-font-size-s);
   font-weight: 700;
   line-height: 1;
+  font-size: 50px;
+  white-space: nowrap;
 }
 
 header nav .nav-brand img {
@@ -220,13 +223,23 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav .nav-sections ul {
     display: flex;
-    gap: 24px;
     margin: 0;
+    float: right;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
     position: relative;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li a {
+    padding: 15px;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li a:hover,
+  header nav .nav-sections .default-content-wrapper > ul > li a:focus,
+  header nav .nav-sections .default-content-wrapper > ul > li a.active {
+    background-color: var(--yellow-color);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
@@ -265,4 +278,30 @@ header nav .nav-sections ul > li > ul > li {
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
+}
+
+header #form {
+  background: #f4f4f4 url('../../icons/search.svg') no-repeat calc(100% - 10px);
+}
+
+.section.registry-strip {
+  width: 100%;
+  order: -1;
+}
+
+.section.registry-strip .default-content-wrapper {
+  height: 30px;
+  display: block;
+  text-align: right;
+  background-color: #0000007d;
+  color: #fff;
+  font-size: 16px;
+  padding: 5px 16px;
+  box-sizing: border-box;
+}
+
+@media (width <= 1024px) {
+  header .section.form-container.nav-tools{
+    display: none;
+  }
 }
