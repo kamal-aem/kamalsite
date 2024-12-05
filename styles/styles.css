@@ -318,6 +318,10 @@ main .default-content-wrapper > h2::after {
   background-color: var(--light-color);
 }
 
+.section.highlight.columns-container .teaser > div > div:not(:has(picture)) {
+  padding: 30px 20px 10px 30px;
+}
+
 .section.highlight.columns-container .teaser > div:first-child {
   align-items: normal;
   gap: 0;
@@ -325,10 +329,6 @@ main .default-content-wrapper > h2::after {
 
 .section.highlight.columns-container .teaser .columns-img-col {
   flex: 2;
-}
-
-.section.highlight.columns-container .teaser > div > div:not(:has(picture)) {
-  padding: 30px 20px 10px 30px;
 }
 
 .section.highlight.columns-container .teaser > div img {

@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import { createOptimizedPicture } from '../../scripts/aem.js';
 
 async function createCard(data) {
@@ -30,9 +31,10 @@ async function createCardsContainer(jsonURL, limit, offset) {
   const json = await resp.json();
 
   const container = document.createElement('div');
-  container.classList.add('queryIndex-cards-container');
+  container.classList.add('query-index-cards-container');
 
   for (const item of json.data) {
+    // eslint-disable-next-line no-await-in-loop
     const card = await createCard(item);
     container.appendChild(card);
   }
@@ -43,7 +45,7 @@ async function createCardsContainer(jsonURL, limit, offset) {
 export default async function decorate(block) {
   const queryIndex = block.querySelector('a[href$=".json"]');
   const parentDiv = document.createElement('div');
-  parentDiv.classList.add('queryIndex-block');
+  parentDiv.classList.add('query-index-block');
 
   if (queryIndex) {
     const jsonURL = queryIndex.href;

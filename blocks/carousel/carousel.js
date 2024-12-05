@@ -32,7 +32,9 @@ function showSlide(block, slideIndex = 0) {
   if (slideIndex >= slides.length) realSlideIndex = 0;
   const activeSlide = slides[realSlideIndex];
 
-  activeSlide.querySelectorAll('a').forEach((link) => link.removeAttribute('tabindex'));
+  activeSlide
+    .querySelectorAll('a')
+    .forEach((link) => link.removeAttribute('tabindex'));
   block.querySelector('.carousel-slides').scrollTo({
     top: 0,
     left: activeSlide.offsetLeft,
@@ -58,11 +60,14 @@ function bindEvents(block) {
     showSlide(block, parseInt(block.dataset.activeSlide, 10) + 1);
   });
 
-  const slideObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) updateActiveSlide(entry.target);
-    });
-  }, { threshold: 0.5 });
+  const slideObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) updateActiveSlide(entry.target);
+      });
+    },
+    { threshold: 0.5 },
+  );
   block.querySelectorAll('.carousel-slide').forEach((slide) => {
     slideObserver.observe(slide);
   });
@@ -75,7 +80,9 @@ function createSlide(row, slideIndex, carouselId) {
   slide.classList.add('carousel-slide');
 
   row.querySelectorAll(':scope > div').forEach((column, colIdx) => {
-    column.classList.add(`carousel-slide-${colIdx === 0 ? 'image' : 'content'}`);
+    column.classList.add(
+      `carousel-slide-${colIdx === 0 ? 'image' : 'content'}`,
+    );
     slide.append(column);
   });
 
@@ -131,7 +138,9 @@ export default async function decorate(block) {
       const indicator = document.createElement('li');
       indicator.classList.add('carousel-slide-indicator');
       indicator.dataset.targetSlide = idx;
-      indicator.innerHTML = `<button type="button" aria-label="${'Show Slide'} ${idx + 1} ${'of'} ${rows.length}"></button>`;
+      indicator.innerHTML = `<button type="button" aria-label="${'Show Slide'} ${
+        idx + 1
+      } ${'of'} ${rows.length}"></button>`;
       slideIndicators.append(indicator);
     }
     row.remove();

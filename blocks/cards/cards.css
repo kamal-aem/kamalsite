@@ -43,9 +43,9 @@
 
 .cards.disabled ul > li::before {
   -webkit-font-smoothing: antialiased;
-  background: linear-gradient(to top left,hsla(0,0%,100%,0) 0,hsla(0,0%,100%,0) 50%,var(--brandPrimary,#ffea00) 50%,var(--brandPrimary,#ffea00) 100%);
+  background: #c1c1c1;
   content: ' \26BF';
-  color: #000000;
+  color: #000;
   font-size: 25px;
   font-weight: 400;
   text-transform: none;

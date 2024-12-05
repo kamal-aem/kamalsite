@@ -36,10 +36,10 @@
   flex: 1;
   font-family: var(--body-font-family);
   font-weight: 200;
-  padding: 0px 40px;
+  padding: 0 40px;
 }
 
-@media (min-width: 1165px) {
+@media (width >= 1165px) {
   .teaser-container .teaser > div div:nth-child(2) {
     height: 40pc;
     max-height: 40pc;

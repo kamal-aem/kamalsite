@@ -18,6 +18,10 @@ footer .section:first-child > div {
   padding-bottom: 40px;
 }
 
+footer .footer p {
+  margin: 0;
+}
+
 footer .section:first-child > div p {
   line-height: 0;
 }
@@ -53,9 +57,6 @@ footer .section:last-child > div {
   gap: .6rem;
 }
 
-footer .footer p {
-  margin: 0;
-}
 
 @media (width >= 900px) {
   footer .footer > div {
