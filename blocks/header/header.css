@@ -280,6 +280,10 @@ header nav .nav-tools {
   grid-area: tools;
 }
 
+header .form-wrapper label{
+    display:none;
+}
+
 header input[type="text"] {
   background: #f4f4f4 url('../../icons/search.svg') no-repeat calc(100% - 10px);
 }
